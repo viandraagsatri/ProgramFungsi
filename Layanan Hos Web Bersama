@@ -36,3 +36,40 @@ bool signIn(){
     cout << "Percobaan anda habis. Silahkan coba lagi nanti yahh ;)." << endl;
     return false;
 }
+
+int main() {
+    int pilihan;
+    bool dahSignUp = false; 
+
+    while (true) {
+        cout << endl << "    " << "---GITHUB---" << endl;
+        cout << "Layanan Hos Web Bersama" << endl << endl;
+        cout << "1. Sign Up" << endl;
+        cout << "2. Sign In" << endl;
+        cout << "3. Keluar" << endl;
+        cout << "Pilih menu (1/2/3): ";
+        cin >> pilihan;
+
+        if (pilihan == 1) {
+            signUp();
+            dahSignUp = true; 
+        } else if (pilihan == 2) {
+            if (!dahSignUp) {
+                cout << "Anda belum memiliki akun. Silakan sign up terlebih dahulu." << endl;
+            } else {
+                if (signIn()) {
+                    cout << endl << "---SELAMAT DATANG DI GITHUB---" << endl;
+                    cout << "apa yang ingin anda lakukan hari ini " << username << "?";
+                    break; 
+                }
+            }
+        } else if (pilihan == 3) {
+            cout << endl << "Yahh Kok gajadi? Mau kemana? :(";
+            break;  // program langsung berhenti
+        } else {
+            cout << "Pilihan tidak valid. Coba lagi." << endl;
+        }
+    }
+
+    return 0;
+}
