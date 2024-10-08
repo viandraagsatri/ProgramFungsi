@@ -1,11 +1,9 @@
-
 #include <iostream>
 #include <string>
 using namespace std;
 
 string username, password;
 
-// fungsi sign up
 void signUp() {
     cout << endl << "    SIGN UP    " << endl;
     cout << "Masukkan username : ";
@@ -13,4 +11,28 @@ void signUp() {
     cout << "Masukkan password : ";
     cin >> password;
     cout << "Sign up berhasil! Silakan sign in." << endl;
+}
+
+bool signIn(){
+    string inputUsername, inputPassword;
+    int kesempatan = 0;
+
+    while(kesempatan<3){
+        cout << endl << " SIGN UP " << endl;
+        cout << "Masukkan Username Anda: ";
+        cin >> inputUsername;
+        cout << "Masukkan Password Anda: ";
+        cin >> inputPassword;
+
+        if(inputUsername == username && inputPassword == password){
+            cout << "Sign in berhasil! Selamat datang," << username << "!" << endl;
+            return true;
+        }else{
+         kesempatan++;
+         cout << "Username atau password anda salah. Silahkan coba lagi. (" << (3-kesempatan) << "percobaan tersisa)" << endl;
+        }
+    }
+
+    cout << "Percobaan anda habis. Silahkan coba lagi nanti yahh ;)." << endl;
+    return false;
 }
